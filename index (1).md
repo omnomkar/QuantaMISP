@@ -6,10 +6,9 @@ layout: default
 
 This project showcases the integration of a Honeypot system with Azure Sentinel and MISP (Malware Information Sharing Platform) to improve threat detection and incident response. By capturing malicious activity through a vulnerable system (Honeypot) and feeding threat intelligence indicators into Azure Sentinel, the project enhances the system's ability to detect and respond to cyber threats in real-time. This setup also uses Docker containers to host MISP and Azure Function Apps for automating data ingestion.
 
-![Overview](Screenshot 2025-02-11 012331.png)
+![Overview](Screenshot 2025-03-05 031026.png)
 
 # Implementation Details
-
 
 ## Honeypot Setup
 *   **Honeypot Creation:** A Honeypot was set up on a **virtual machine (VM)** running a **RDP** service. This service is intentionally vulnerable and designed to attract malicious actors attempting to exploit RDP vulnerabilities. By simulating a real target, the Honeypot allows for the collection of various attack patterns, login attempts, and other malicious activities.
@@ -17,6 +16,8 @@ This project showcases the integration of a Honeypot system with Azure Sentinel 
 *   **Incident Generation:** The security events from the Honeypot are sent to **Sentinel** in real time, where incidents are created based on rules that look for unusual patterns, such as multiple failed login attempts or connections from suspicious IP addresses.
 
 > The main takeaway from this stage is the importance of simulating real-world attacks using a Honeypot to capture valuable threat data for further analysis and detection.
+
+![Overview](Screenshot 2025-03-05 031523.png)
 
 ## MISP Setup in Docker
 
@@ -26,6 +27,8 @@ This project showcases the integration of a Honeypot system with Azure Sentinel 
 
 > By integrating MISP with Docker, this stage ensures that the threat intelligence platform is easily deployable and scalable, with continuous updates from public feeds.
 
+![Overview](Screenshot 2025-03-05 032336.png)
+
 ## Connecting MISP to Azure Sentinel
 
 *   **Data Connector Setup:** The goal of this stage is to connect MISP with Azure Sentinel. This is done by setting up a data connector that allows Sentinel to ingest threat intelligence from MISP, enabling Sentinel to use these external indicators to detect potential threats.
@@ -34,7 +37,7 @@ This project showcases the integration of a Honeypot system with Azure Sentinel 
 
 > The key takeaway here is that automation through Azure Function Apps simplifies and ensures the consistency of data flow between MISP and Sentinel, allowing for real-time updates to the threat detection system.
 
-![Overview](Screenshot 2025-02-11 012504.png)
+![Overview](Screenshot 2025-03-04 154842.png)
 
 ## Testing and Verification
 
@@ -43,7 +46,9 @@ This project showcases the integration of a Honeypot system with Azure Sentinel 
 *   **Incident Generation:** After the integration is verified, Sentinel can generate incidents based on the threat intelligence. These incidents are further enriched with additional data from MISP, giving analysts more context for potential threats.
 
 > The main point in this stage is verifying that the entire pipeline—from MISP to Azure Sentinel—works smoothly, with automated updates ensuring that the system is always using the latest threat intelligence.
-> 
+
+![Overview](Screenshot 2025-03-05 032647.png)
+
 # Conclusion
 
 This project demonstrates the integration of multiple tools and services to build a robust threat detection and response system. By setting up a Honeypot, integrating MISP for threat intelligence, and automating data ingestion with Azure Function Apps, this solution continuously improves Azure Sentinel's ability to detect and respond to emerging threats.
