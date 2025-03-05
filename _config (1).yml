@@ -1,5 +1,5 @@
-title: Virtual SOC Environment
-description: A complete breakdown on the creation of my virtual SOC.
+title: Automated Threat Intelligence Integration
+description: A complete breakdown on the integration of MISP with Sentinal through a VM
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-midnight
